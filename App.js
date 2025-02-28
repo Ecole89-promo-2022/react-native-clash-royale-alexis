@@ -10,7 +10,9 @@ import CardDetails from './components/CardDetails';
 import Countries from './components/Countries';
 import Clans from './components/Clans';
 import ClanDetails from './components/ClanDetails';
-
+import Player from './components/Player';
+import { SearchPlayer } from './components/SearchPlayer';
+import { SearchClan } from './components/SearchClan';
 
 const Stack = createNativeStackNavigator();
 const logo = require('./assets/logo.png');
@@ -45,7 +47,9 @@ const CustomHeader = () => {
             <Text style={styles.menuItem}>Countries</Text>
           </TouchableOpacity>
           <Text style={styles.menuItem}>Search Player</Text>
-          <Text style={styles.menuItem}>Search Clan</Text>
+          <TouchableOpacity onPress={() => { navigation.navigate('SearchClan') }} >
+            <Text style={styles.menuItem}>Search Clan</Text>
+          </TouchableOpacity>
         </View>
       </Modal>
     </View>
@@ -66,12 +70,13 @@ export default function App() {
         <Stack.Screen name="Countries" component={Countries} options={{ title: 'Countries' }} />
         <Stack.Screen name="Clans" component={Clans} options={{ title: 'Clans' }} />
         <Stack.Screen name="ClanDetails" component={ClanDetails} options={{ title: 'Clan Details' }} />
-
+        <Stack.Screen name="Player" component={Player} options={{ title: 'Player' }} />
+        <Stack.Screen name="SearchPlayer" component={SearchPlayer} options={{ title: 'Search Player' }} />
+        <Stack.Screen name="SearchClan" component={SearchClan} options={{ title: 'Search Clan' }} />
       </Stack.Navigator>
     </NavigationContainer>
   )
 }
-
 const styles = StyleSheet.create({
   header: {
     paddingTop: 40,
